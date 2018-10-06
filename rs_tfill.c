@@ -70,7 +70,7 @@ static void rs_fill_tri_row(const u16 row,
                             i16 leftU, i16 leftV,
                             const i16 rightU, const i16 rightV)
 {
-	i16 x;
+    i16 x;
     i32 width;
     i16 uDelta, vDelta;
     i32 screenIdx;
@@ -84,7 +84,7 @@ static void rs_fill_tri_row(const u16 row,
     uDelta = ((rightU - leftU)) / (width + 1);
     vDelta = ((rightV - leftV)) / (width + 1);
 
-	/* Draw the pixels.*/
+    /* Draw the pixels.*/
     screenIdx = (startX + (row * FRAME_BUFFER->resolution.w));
     for (x = startX; x <= endX; x++)
     {
@@ -107,10 +107,10 @@ static void rs_fill_tri_part(const vertex4_s *peak, const vertex4_s *base1, cons
     i16 startRow, endRow, y;
     i16 height, flipped = 0;
 
-	/* We'll interpolate by deltas each pixel.*/
+    /* We'll interpolate by deltas each pixel.*/
     i32 pleft, pright, dLeft, dRight, leftU, leftV, rightU, rightV, dLeftU, dLeftV, dRightU, dRightV;
 
-	/* Figure out which of the base's vertices is on the left and which on the right.*/
+    /* Figure out which of the base's vertices is on the left and which on the right.*/
     const vertex4_s *left = base2, *right = base1;
     if (base1->x < base2->x)
     {
@@ -195,13 +195,13 @@ void rs_fill_tri(const triangle_s *const t)
 {
     vertex4_s split;
     const vertex4_s *high = &t->v[0],
-                 	*mid = &t->v[1],
-                 	*low = &t->v[2];
+                    *mid = &t->v[1],
+                    *low = &t->v[2];
 
     BASE_COLOR = t->baseColor;
     TEXTURE_PTR = t->texturePtr;
 
-	/* Rasterize the triangle into the frame buffer in two parts.*/
+    /* Rasterize the triangle into the frame buffer in two parts.*/
     rs_sort_tri_verts_by_height(&high, &mid, &low);
     rs_split_tri(&split, high, mid, low);
     rs_fill_tri_part(high, mid, &split); /* Up triangle.*/

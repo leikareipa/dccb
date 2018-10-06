@@ -31,10 +31,10 @@ typedef struct
 frame_buffer_s;
 
 #define k_assert(condition, error_str) if (!(condition))\
-								       {\
-											kd_release_display();\
-											assert(condition && error_str);\
-									   }
+                                       {\
+                                            kd_release_display();\
+                                            assert(condition && error_str);\
+                                       }
 
 /* For converting to and from fixed-point values.*/
 #define FIXEDP(value)       ((value) << 16)	/* These expect a 32-bit unsigned value.*/
@@ -53,10 +53,10 @@ frame_buffer_s;
 
 /* For a sine/cosine lookup.*/
 extern const float sin_lut[];
-#define SIN(x)              (sin_lut[(x)])
-#define COS(x)              (sin_lut[(x) + 256])
+#define SIN(x)  (sin_lut[(x)])
+#define COS(x)  (sin_lut[(x) + 256])
 
-#define MESSAGE(args)       (printf("[info ] {%s:%i} ", __FILE__, __LINE__), printf args, printf("\n"), fflush(stdout))
-#define ERROR(args)         (printf("[ERROR] {%s:%i} ", __FILE__, __LINE__), printf args, printf("\n"), fflush(stdout))
+#define MESSAGE(args)   (printf("[info ] {%s:%i} ", __FILE__, __LINE__), printf args, printf("\n"), fflush(stdout))
+#define ERROR(args)     (printf("[ERROR] {%s:%i} ", __FILE__, __LINE__), printf args, printf("\n"), fflush(stdout))
 
 #endif

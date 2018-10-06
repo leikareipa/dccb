@@ -19,7 +19,7 @@ static frame_buffer_s FRAME_BUFFER = {NULL, NULL, {0, 0, 0}};
 /* Load the program's palette from disk, and add it into the renderer.*/
 void r_assign_palette()
 {
-	int i;
+    int i;
     FILE *paletteFile;
 
     /* This function is only supposed to be called once, at program launch when
@@ -35,7 +35,7 @@ void r_assign_palette()
     /* Load the palette from disk.*/
     for (i = 0; i < 256; i++)
     {
-		color_rgb_s c;
+        color_rgb_s c;
 
         if (fread(&c.r, 1, 1, paletteFile) != 1 ||
             fread(&c.g, 1, 1, paletteFile) != 1 ||
@@ -66,10 +66,10 @@ void r_clear_canvas(void)
 
 void r_resize_frame_buffer(const resolution_s *const r)
 {
-	if (FRAME_BUFFER.canvas != NULL)
-	{
-		free(FRAME_BUFFER.canvas);
-	}
+    if (FRAME_BUFFER.canvas != NULL)
+    {
+        free(FRAME_BUFFER.canvas);
+    }
 
     FRAME_BUFFER.resolution = *r;
     FRAME_BUFFER.canvas = (palette_idx*)malloc(sizeof(palette_idx) * r->w * r->h * (r->bpp / 8));
@@ -84,15 +84,15 @@ void r_resize_frame_buffer(const resolution_s *const r)
  * function must be called before any rendering is attempted.*/
 const frame_buffer_s* kr_acquire_renderer(void)
 {
-	resolution_s resolution;
+    resolution_s resolution;
 
-	/* Set the resolution for VGA mode 13h*/
-	resolution.w = 320;
-	resolution.h = 200;
-	resolution.bpp = 8;
+    /* Set the resolution for VGA mode 13h*/
+    resolution.w = 320;
+    resolution.h = 200;
+    resolution.bpp = 8;
 
     /* This function is only supposed to be called once, at program launch when
-	 * the canvas is still uninitialized.*/
+     * the canvas is still uninitialized.*/
     k_assert((FRAME_BUFFER.canvas == NULL), "Tried to re-initialize the frame buffer canvas.");
 
     r_resize_frame_buffer(&resolution);
@@ -116,7 +116,7 @@ void kr_release_renderer()
 
 frame_buffer_s* kr_render_scene(triangle_mesh_s *const scene)
 {
-	int i = 0;
+    int i = 0;
 
     r_clear_canvas();
 

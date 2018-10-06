@@ -28,9 +28,9 @@ void kmesh_load_triangle_mesh_from_file(const char *const filename, triangle_mes
 
     /* Read in the header.*/
     char idStr[4];
-	idStr[3] = '\0';
+    idStr[3] = '\0';
     kf_read_binary((u8*)idStr, 3, fileHandle);
-	k_assert((strcmp(idStr, "KAB") == 0), "Unsupported mesh file format.");
+    k_assert((strcmp(idStr, "KAB") == 0), "Unsupported mesh file format.");
     kf_read_binary((u8*)&maxTexNameLen, sizeof(maxTexNameLen), fileHandle);
     k_assert((NUM_ELEMENTS(texName) >= maxTexNameLen), "Texture names won't fit into buffer.");
     kf_read_binary((u8*)&numMats, sizeof(numMats), fileHandle);
@@ -102,7 +102,7 @@ void kmesh_load_triangle_mesh_from_file(const char *const filename, triangle_mes
 
     k_assert((triIdx == numTrisTotal), "Loaded in a different number of triangles than what we had allocated memory for.");
 
-	mesh->n = numTrisTotal;
+    mesh->n = numTrisTotal;
 
     kf_close_file(fileHandle);
 

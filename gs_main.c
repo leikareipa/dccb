@@ -66,12 +66,12 @@ void kg_transform_scene(triangle_mesh_s *const dst, const triangle_mesh_s *const
     u16 i, k = 0;
     matrix44_s rotation, transl, worldSpace, clipSpace;
 
-	/* For some visual interest, make the scene rotate.*/
+    /* For some visual interest, make the scene rotate.*/
     static u16 rot = 0;
     rot += (7 << 6);
 
     /* Create the world-space matrix from the translation and rotation matrices,
-	 * and pre-bake the perspective matrix into the world space matrix, producing
+     * and pre-bake the perspective matrix into the world space matrix, producing
      * the clip-space matrix.*/
     g_make_transl_mat(&transl, 0, 0, 120);
     g_make_rot_mat(&rotation, rot, rot, rot);
@@ -89,7 +89,7 @@ void kg_transform_scene(triangle_mesh_s *const dst, const triangle_mesh_s *const
         g_transform_vert(&dst->tris[k].v[1], &clipSpace);
         g_transform_vert(&dst->tris[k].v[2], &clipSpace);
 
-		/* Something might happen in clip-space at some point.*/
+        /* Something might happen in clip-space at some point, but not now.*/
 
         /* Transform into screen-space.*/
         g_transform_vert(&dst->tris[k].v[0], &SCREEN_SPACE_MAT);

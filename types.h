@@ -8,12 +8,12 @@
 #define TYPES_H
 
 /* For 16-bit DOS.*/
-	typedef long            i32;
-	typedef int             i16;
-	typedef char            i8;
-	typedef unsigned long   u32;
-	typedef unsigned int    u16;
-	typedef unsigned char   u8;
+    typedef long            i32;
+    typedef int             i16;
+    typedef char            i8;
+    typedef unsigned long   u32;
+    typedef unsigned int    u16;
+    typedef unsigned char   u8;
 
 typedef unsigned int	uint;
 typedef float          	real;

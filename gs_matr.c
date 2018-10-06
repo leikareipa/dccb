@@ -53,7 +53,7 @@ void g_transform_vert(vertex4_s *const v, const matrix44_s *const m)
 
 void g_mul_two_mats(const matrix44_s *const m1, const matrix44_s *const m2, matrix44_s *const dst)
 {
-	int i, j;
+    int i, j;
 
     k_assert(((m1 != m2) && (m1 != dst) && (m2 != dst)),
 			 "Can't do in-place matrix multiplication.");
@@ -63,9 +63,9 @@ void g_mul_two_mats(const matrix44_s *const m1, const matrix44_s *const m2, matr
         for (j = 0; j < 4; j++)
         {
             dst->data[i + (j * 4)] = m1->data[i + (0 * 4)] * m2->data[0 + (j * 4)] +
-                                      m1->data[i + (1 * 4)] * m2->data[1 + (j * 4)] +
-                                      m1->data[i + (2 * 4)] * m2->data[2 + (j * 4)] +
-                                      m1->data[i + (3 * 4)] * m2->data[3 + (j * 4)];
+                                     m1->data[i + (1 * 4)] * m2->data[1 + (j * 4)] +
+                                     m1->data[i + (2 * 4)] * m2->data[2 + (j * 4)] +
+                                     m1->data[i + (3 * 4)] * m2->data[3 + (j * 4)];
         }
     }
 
@@ -76,7 +76,7 @@ void g_make_rot_mat(matrix44_s *const m, u16 x, u16 y, u16 z)
 {
     matrix44_s rx, ry, rz, tmp;
 
-	/* Unpack for use with the sin/cos lookup table (range 0...1023).*/
+    /* Unpack for use with the sin/cos lookup table (range 0...1023).*/
     x >>= 6;
     y >>= 6;
     z >>= 6;

@@ -41,7 +41,7 @@ static u16 f_next_free_handle()
 
 void kf_read_binary(u8 *dst, const u32 numBytes, const u16 handleId)
 {
-	size_t r;
+    size_t r;
 
     k_assert(f_is_an_active_handle(handleId), "Was asked to read with an inactive file handle.");
 
@@ -67,7 +67,7 @@ u16 kf_open_binary_file(const char *const filename, const char *const mode)
 
 void kf_close_file(const u16 handleId)
 {
-	int cl;
+    int cl;
 
     k_assert(f_is_an_active_handle(handleId), "Was asked to close an inactive file handle.");
 

@@ -120,10 +120,10 @@ void g_make_persp_mat(matrix44_s *const m,
     const real tanHalfFOV = tan(fov / 2);
     const real zRange = zNear - zFar;
 
-    m->data[0] = 1.0f / (tanHalfFOV * aspectRatio);	m->data[4] = 0;					m->data[8] = 0;                         m->data[12] = 0;
-    m->data[1] = 0;                                 m->data[5] = 1.0f / tanHalfFOV;	m->data[9] = 0;                         m->data[13] = 0;
-    m->data[2] = 0;                                 m->data[6] = 0;					m->data[10] = (-zNear -zFar)/zRange;	m->data[14] = 2 * zFar * zNear / zRange;
-    m->data[3] = 0;                                 m->data[7] = 0;					m->data[11] = 1;                        m->data[15] = 0;
+    m->data[0] = 1.0f / (tanHalfFOV * aspectRatio); m->data[4] = 0;                 m->data[8] = 0;                         m->data[12] = 0;
+    m->data[1] = 0;                                 m->data[5] = 1.0f / tanHalfFOV; m->data[9] = 0;                         m->data[13] = 0;
+    m->data[2] = 0;                                 m->data[6] = 0;                 m->data[10] = (-zNear -zFar)/zRange;    m->data[14] = 2 * zFar * zNear / zRange;
+    m->data[3] = 0;                                 m->data[7] = 0;                 m->data[11] = 1;                        m->data[15] = 0;
 
     return;
 }
@@ -142,10 +142,10 @@ void g_make_scaling_mat(matrix44_s *const m,
 void g_make_screen_space_mat(matrix44_s *const m,
                              const real halfWidth, const real halfHeight)
 {
-    m->data[0] = halfWidth;	m->data[4] = 0;             m->data[8]  = 0;    m->data[12] = halfWidth - 0.5f;
-    m->data[1] = 0;         m->data[5] = -halfHeight;	m->data[9]  = 0;	m->data[13] = halfHeight - 0.5f;
-    m->data[2] = 0;         m->data[6] = 0;             m->data[10] = 1;	m->data[14] = 0;
-    m->data[3] = 0;         m->data[7] = 0;             m->data[11] = 0;	m->data[15] = 1;
+    m->data[0] = halfWidth; m->data[4] = 0;             m->data[8]  = 0;    m->data[12] = halfWidth - 0.5f;
+    m->data[1] = 0;         m->data[5] = -halfHeight;	m->data[9]  = 0;    m->data[13] = halfHeight - 0.5f;
+    m->data[2] = 0;         m->data[6] = 0;             m->data[10] = 1;    m->data[14] = 0;
+    m->data[3] = 0;         m->data[7] = 0;             m->data[11] = 0;    m->data[15] = 1;
 
     return;
 }

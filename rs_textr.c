@@ -70,7 +70,7 @@ void kr_load_textures(void)
 u8 r_texture_color_at(const u8 u, const u8 v, const i16 texId)
 {
     /* Temp hack. Prevent out-of-upper-bounds u,v access by clearing bits above
-     * the maximum size with (0 - index). Assumes that the maximum is a power of two.*/
+     * the maximum size with 0-index. Assumes that the maximum is a power of two.*/
     const u8 uBounded = (u & (TEXTURE_WIDTH - 1));
     const u8 vBounded = (v & (TEXTURE_HEIGHT - 1));
 

@@ -28,6 +28,8 @@ static u8 *const VGA_MEMORY = (u8*)0xA0000000L;
 
 static void d_set_video_mode(const video_mode_e mode)
 {
+    /* May get called by k_assert, so use regular assert inside here.*/
+
     union REGS regs;
 
     if (mode == VGAMODE_GRAPHICS)
@@ -42,7 +44,7 @@ static void d_set_video_mode(const video_mode_e mode)
     }
     else
     {
-        k_assert(0, "Was requested to set an unrecognized video mode.");
+        assert(0 && "Was requested to set an unrecognized video mode.");
     }
 
     int86(0x10, &regs, &regs);
@@ -56,7 +58,7 @@ static void d_set_palette(const color_rgb_s *p)
 
     k_assert((p != NULL), "Tried to operate on a null palette.");
 
-	/* Assign the 256-color palette of VGA mode 13h.*/
+    /* Assign the 256-color palette of VGA mode 13h.*/
     for (i = 0; i < 256; (i++, p++))
     {
         outp(0x03c8, i);
@@ -78,6 +80,8 @@ void kd_acquire_display(const frame_buffer_s *const fb)
 
 void kd_release_display(void)
 {
+    /* May get called by k_assert, so use regular assert inside here.*/
+
     d_set_video_mode(VGAMODE_TEXT);
 
     return;

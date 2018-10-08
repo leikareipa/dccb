@@ -6,6 +6,7 @@
 
 #include <assert.h>
 #include <string.h>
+#include <stdio.h>
 #include <dos.h>
 #include "renderer.h"
 #include "display.h"

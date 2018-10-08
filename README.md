@@ -5,10 +5,12 @@ The code is that of a simple VGA mode 13h software 3d rasterizer, which operates
 
 ### Building
 Batch files are provided under the ```build``` directory for building DCCB with various C compilers:
-* Pacific C
 * Microsoft C
+* Borland Turbo C
+* HI-TECH Pacific C
 * Digital Mars C/C++
 * Open Watcom C/C++
-* Borland Turbo C
 
 Your job is to set up the toolchains, and to adapt the batch files as needed.
+
+![A screenshot of DCCB](http://tarpeeksihyvaesoft.com/soft/img/dccb.png)

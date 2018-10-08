@@ -13,4 +13,4 @@ Batch files are provided under the ```build``` directory for building DCCB with 
 
 Your job is to set up the toolchains, and to adapt the batch files as needed.
 
-![A screenshot of DCCB](http://tarpeeksihyvaesoft.com/soft/img/dccb.png)
+![A screenshot of DCCB](http://tarpeeksihyvaesoft.com/soft/img/dccb_b.png)

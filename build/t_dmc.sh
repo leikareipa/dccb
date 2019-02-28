@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Digital Mars C 8.
+# Digital Mars C/C++ 8.
 
 EXE_NAME="..\bin\t_dmc.exe"
 DMC_PATH=~/compi/dmc

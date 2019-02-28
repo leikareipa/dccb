@@ -25,7 +25,7 @@
 #endif
 
 /* For how many seconds to let the test run.*/
-static const u16 TEST_DUR_SEC = 20;
+static const u16 TEST_DUR_SEC = 15;
 
 static void k_initialize_system(void)
 {

@@ -1,6 +1,8 @@
 /*
  * Tarpeeksi Hyvae Soft 2018 /
  * DOS C Compiler Benchmark
+ * 
+ * Renderer.
  *
  */
 

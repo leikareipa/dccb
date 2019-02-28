@@ -18,6 +18,8 @@
 /* For int86().*/
 #if defined(__WATCOMC__)
     #include <i86.h>
+#elif defined(__POWERC)
+    #include <dos.h>
 #elif defined(__PACIFIC__) || defined(__TURBOC__)
     #include <dos.h>
 #else

@@ -1,6 +1,8 @@
 /*
  * Tarpeeksi Hyvae Soft 2018 /
- * DOS C Compiler Benchmark, triangle filler (rasterization)
+ * DOS C Compiler Benchmark
+ * 
+ * Triangle filler.
  *
  */
 
@@ -102,7 +104,7 @@ static void rs_fill_tri_row(const u16 row,
  * Note that this expects the vertices to be in screen-space, and for the triangle's
  * base to be flat. You'd call this function after you've horizontally split the
  * triangle, passing each piece into the function separately.*/
-static void rs_fill_tri_part(const vertex4_s *peak, const vertex4_s *base1, const vertex4_s *base2)
+static void rs_fill_tri_part(vertex4_s *peak, vertex4_s *base1, vertex4_s *base2)
 {
     i16 startRow, endRow, y;
     i16 height, flipped = 0;
@@ -111,7 +113,7 @@ static void rs_fill_tri_part(const vertex4_s *peak, const vertex4_s *base1, cons
     i32 pleft, pright, dLeft, dRight, leftU, leftV, rightU, rightV, dLeftU, dLeftV, dRightU, dRightV;
 
     /* Figure out which of the base's vertices is on the left and which on the right.*/
-    const vertex4_s *left = base2, *right = base1;
+    vertex4_s *left = base2, *right = base1;
     if (base1->x < base2->x)
     {
         left = base1;
@@ -191,12 +193,12 @@ static void rs_fill_tri_part(const vertex4_s *peak, const vertex4_s *base1, cons
     return;
 }
 
-void rs_fill_tri(const triangle_s *const t)
+void rs_fill_tri(triangle_s *const t)
 {
     vertex4_s split;
-    const vertex4_s *high = &t->v[0],
-                    *mid = &t->v[1],
-                    *low = &t->v[2];
+    vertex4_s *high = &t->v[0],
+              *mid = &t->v[1],
+              *low = &t->v[2];
 
     BASE_COLOR = t->baseColor;
     TEXTURE_PTR = t->texturePtr;

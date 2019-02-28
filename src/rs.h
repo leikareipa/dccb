@@ -11,7 +11,7 @@
 
 void rs_init_tri_filler(frame_buffer_s *const frameBuffer);
 
-void rs_fill_tri(const triangle_s *const t);
+void rs_fill_tri(triangle_s *const t);
 
 u8 r_texture_color_at(const u8 u, const u8 v, const i16 texId);
 

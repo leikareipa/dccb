@@ -1,6 +1,8 @@
 /*
  * 2018 Tarpeeksi Hyvae Soft /
  * DOS C Compiler Benchmark
+ * 
+ * Matrix (4x4).
  *
  *
  * Adapted from matrix code written by Benny Bobaganoosh (https://github.com/BennyQBD/3DSoftwareRenderer).

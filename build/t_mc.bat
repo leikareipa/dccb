@@ -3,7 +3,7 @@
 cd ..\src
 
 set COMPILER_NAME="Microsoft C 5"
-set EXE_NAME="..\bin\t_mc.exe"
+set EXE_NAME=..\bin\t_mc.exe
 set PATH=C:\MC\BIN\;C:\MC\LIB\;%PATH%
 cl /AL /FPi87 /O /G2 /Fe%EXE_NAME% /IC:\MC\INCLUDE *.c /link C:\MC\LIB\
 @if ERRORLEVEL 1 goto fail

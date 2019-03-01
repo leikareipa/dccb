@@ -43,9 +43,9 @@ static void rs_split_tri(vertex4_s *split,
 }
 
 /* ('High' here means in the sense of low y such that y = 0 is the top of the screen.)*/
-static void rs_sort_tri_verts_by_height(const vertex4_s **high, const vertex4_s **mid, const vertex4_s **low)
+static void rs_sort_tri_verts_by_height(vertex4_s **high, vertex4_s **mid, vertex4_s **low)
 {
-    #define SWAP_VERTICES(v1, v2) const vertex4_s *const t = v1; \
+    #define SWAP_VERTICES(v1, v2) vertex4_s *t = v1; \
                                   v1 = v2; \
                                   v2 = t;
 

@@ -40,10 +40,10 @@
 
 void g_transform_vert(vertex4_s *const v, const matrix44_s *const m)
 {
-    const i32 x0 = ((m->data[0] * v->x) + (m->data[4] * v->y) + (m->data[8] * v->z) + (m->data[12] * v->w));
-    const i32 y0 = ((m->data[1] * v->x) + (m->data[5] * v->y) + (m->data[9] * v->z) + (m->data[13] * v->w));
-    const i32 z0 = ((m->data[2] * v->x) + (m->data[6] * v->y) + (m->data[10] * v->z) + (m->data[14] * v->w));
-    const i32 w0 = ((m->data[3] * v->x) + (m->data[7] * v->y) + (m->data[11] * v->z) + (m->data[15] * v->w));
+    i32 x0 = ((m->data[0] * v->x) + (m->data[4] * v->y) + (m->data[8] * v->z) + (m->data[12] * v->w));
+    i32 y0 = ((m->data[1] * v->x) + (m->data[5] * v->y) + (m->data[9] * v->z) + (m->data[13] * v->w));
+    i32 z0 = ((m->data[2] * v->x) + (m->data[6] * v->y) + (m->data[10] * v->z) + (m->data[14] * v->w));
+    i32 w0 = ((m->data[3] * v->x) + (m->data[7] * v->y) + (m->data[11] * v->z) + (m->data[15] * v->w));
 
     v->x = x0;
     v->y = y0;
@@ -119,8 +119,8 @@ void g_make_persp_mat(matrix44_s *const m,
                       const real fov, const real aspectRatio,
                       const i32 zNear, const i32 zFar)
 {
-    const real tanHalfFOV = tan(fov / 2);
-    const real zRange = zNear - zFar;
+    real tanHalfFOV = tan(fov / 2);
+    real zRange = zNear - zFar;
 
     m->data[0] = 1.0f / (tanHalfFOV * aspectRatio); m->data[4] = 0;                 m->data[8] = 0;                         m->data[12] = 0;
     m->data[1] = 0;                                 m->data[5] = 1.0f / tanHalfFOV; m->data[9] = 0;                         m->data[13] = 0;

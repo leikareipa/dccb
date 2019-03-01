@@ -56,7 +56,7 @@ void kr_release_texture_cache(void)
 
 void kr_load_textures(void)
 {
-    FILE *const textureFile = fopen("texture", "rb");
+    FILE *textureFile = fopen("texture", "rb");
 
     k_assert((textureFile != NULL), "Can't load textures into a null texture cache.");
     if (fread(TEXTURE_CACHE, 1, TEXTURE_BYTESIZE, textureFile) != TEXTURE_BYTESIZE)
@@ -73,8 +73,8 @@ u8 r_texture_color_at(const u8 u, const u8 v, const i16 texId)
 {
     /* Temp hack. Prevent out-of-upper-bounds u,v access by clearing bits above
      * the maximum size with 0-index. Assumes that the maximum is a power of two.*/
-    const u8 uBounded = (u & (TEXTURE_WIDTH - 1));
-    const u8 vBounded = (v & (TEXTURE_HEIGHT - 1));
+    u8 uBounded = (u & (TEXTURE_WIDTH - 1));
+    u8 vBounded = (v & (TEXTURE_HEIGHT - 1));
 
     k_assert((texId < MAX_NUM_TEXTURES), "Trying to access the texture cache out of bounds.");
 

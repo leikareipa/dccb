@@ -54,7 +54,7 @@ void kf_read_binary(u8 *dst, const u32 numBytes, const u16 handleId)
 
 u16 kf_open_binary_file(const char *const filename, const char *const mode)
 {
-    const u16 h = f_next_free_handle();
+    u16 h = f_next_free_handle();
 
     MESSAGE(("Opening file '%s' with handle %u.", filename, h));
 

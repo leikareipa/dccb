@@ -59,7 +59,7 @@ void r_assign_palette()
 
 void r_clear_canvas(void)
 {
-    const u32 frameSize = sizeof(palette_idx) * FRAME_BUFFER.resolution.w * FRAME_BUFFER.resolution.h * (FRAME_BUFFER.resolution.bpp / 8);
+    u32 frameSize = sizeof(palette_idx) * FRAME_BUFFER.resolution.w * FRAME_BUFFER.resolution.h * (FRAME_BUFFER.resolution.bpp / 8);
 
     memset(FRAME_BUFFER.canvas, 4, frameSize);
 

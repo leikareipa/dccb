@@ -18,7 +18,7 @@
 
 void kmesh_load_triangle_mesh_from_file(const char *const filename, triangle_mesh_s *const mesh)
 {
-    const u16 fileHandle = kf_open_binary_file(filename, "rb");
+    u16 fileHandle = kf_open_binary_file(filename, "rb");
     u8 numMats, maxTexNameLen;
     u16 numObjs, numTris, numTrisTotal;
     u16 i, p, triIdx = 0;

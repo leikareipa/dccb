@@ -18,9 +18,11 @@
 /* For int86().*/
 #if defined(__WATCOMC__)
     #include <i86.h>
-#elif defined(__POWERC)
+#elif defined(__POWERC)/* Mix Power C.*/
     #include <dos.h>
-#elif defined(__PACIFIC__) || defined(__TURBOC__)
+#elif defined(__PACIFIC__)/* Pacific C.*/
+    #include <dos.h>
+#elif defined(__TURBOC__)/* Borland Turbo C.*/
     #include <dos.h>
 #else
     #include <bios.h>
@@ -31,7 +33,7 @@ static const u16 TEST_DUR_SEC = 15;
 
 static void k_initialize_system(void)
 {
-    const frame_buffer_s *const fb = kr_acquire_renderer();
+    const frame_buffer_s *fb = kr_acquire_renderer();
     kr_init_texture_cache();
     kr_load_textures();
     kg_initialize_geometry(&fb->resolution);
@@ -52,7 +54,7 @@ static void k_release_system(void)
 static void draw_progress_bar(const u16 secsElapsed, frame_buffer_s *const frameBuffer)
 {
     u16 x;
-    const u16 y = 0;
+    u16 y = 0;
     u16 width = ((frameBuffer->resolution.w / TEST_DUR_SEC) * secsElapsed);
 
     if (width >= frameBuffer->resolution.w)
@@ -92,7 +94,7 @@ static u16 user_wants_to_quit(void)
 
 int main(void)
 {
-    const time_t startTime = time(NULL);
+    time_t startTime = time(NULL);
     u16 testFinished = 0; /* Will be set to 1 once the benchmark is fully completed.*/
     u16 frameCount = 0;
     u16 secsElapsed = 0;

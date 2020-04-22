@@ -23,18 +23,16 @@ Once you have it, put the executable in the [bin/](bin/) directory, and run it &
 Note that the directory in which you run the executable should also contain the files `mesh`, `palette`, and `texture`, as provided in this repo. The first file contains the 3d mesh to be rendered (in a custom format, of which no specification is available at this time), the second file defines the VGA mode 13h palette (three bytes &ndash; RGB &ndash; per color for 256 colors, each byte expressing a value between 0 and 63), and the last one is the texture with which the ball will be rendered (each byte in the file an index to the palette).
 
 ## Sample results
-The following table provides results for various compilers using this benchmark, which was run in DOSBox (cycles = 67000).
+The following table provides results for various compilers. The table is sorted from best to worst by the performance (number of frames rendered per second) of the compiled executable running in DOSBox (cycles = 67000).
 
-| Compiler             | FPS |
-| -------------------- |:---:|
-| Microsoft C/C++ 8    | 57  |
-| Digital Mars C/C++ 8 | 41  |
-| Open Watcom          | 37  |
-| Borland Turbo C 2    | 33  |
-| Borland C++ 2        | 32  |
-| Microsoft C 5        | 32  |
-| Microsoft QuickC 1   | 31  |
-| HI-TECH Pacific C 7  | 30  |
-| Mix Power C 2        | 14  |
-
-![A screenshot of dccb](http://tarpeeksihyvaesoft.com/soft/img/dccb_b.png)
+| Result (FPS) | Compiler             | Compiler version |
+| ------------ | -------------------- | ---------------- |
+| 57           | Microsoft C/C++      | 8                |
+| 41           | Digital Mars C/C++   | 8                |
+| 37           | Open Watcom          | ?                |
+| 33           | Borland Turbo C      | 2                |
+| 32           | Borland C++          | 2                |
+| 32           | Microsoft C          | 5                |
+| 31           | Microsoft QuickC     | 1                |
+| 30           | HI-TECH Pacific C    | 7                |
+| 14           | Mix Power C          | 2.2              |
